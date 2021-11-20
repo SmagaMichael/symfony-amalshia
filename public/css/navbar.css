@@ -1,0 +1,84 @@
+@font-face {
+    font-family: 'Marck' ;
+    src: url('../police/Marck_Script/MarckScript-Regular.ttf');
+}
+
+                        /* BARRE DE NAVIGATION  */
+
+.navbar{
+    border-bottom: 1px solid white;
+    background-color: black ;
+    width: 100%;
+}
+.nav-item{
+    display: flex;
+    align-items: center;
+}
+
+.navbar-collapse {
+    display: flex;
+    justify-content: center !important;
+}
+
+.navbar-brand{ 
+    font-size: 1.75em;
+    font-weight: 700;
+    text-transform: uppercase;}
+
+
+.navbar-nav{
+display: flex;
+justify-content: center;
+}
+
+
+#navbarNav .nav-link:hover{
+    /* border:2px solid #abe0f2; */
+    color: #ffffff;
+    background-color: #141943;
+    border-radius: 15px;
+}
+
+
+.signature{
+    width: 300px;
+    height: auto;
+}
+
+
+.page{
+    width: 1300px;
+    
+}      
+
+/* RESPONSIVE AVATAR */
+@media  (min-width: 991px) {
+    .avatar{width: 500px;}
+    .LastCreaDiv h3{font-size: 62px;}
+    
+    #navbarNav .nav-link{
+        border-top:2px  solid white;
+        border-bottom:2px  solid white;
+        color: white;
+        font-weight: 700;
+        padding: 20px 50px;
+    }
+    
+    }
+        
+    @media (max-width: 991px) {
+    .avatar{width: 440px;}
+    .LastCreaDiv h3{font-size: 32px;}
+    .divsignature{
+        display: none;
+    }
+    .signature{
+        display: none;
+    }
+    #navbarNav .nav-link{
+        color: white;
+        font-weight: 700;
+        padding: 20px 70px;
+    }
+    }
+         
