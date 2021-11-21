@@ -1,0 +1,53 @@
+body{
+    background-color: black;
+}
+
+h1{
+    font-family: 'Marck';
+    color: #126480;
+    font-weight: bold;
+    font-size: 45px;
+}
+
+.all-creation{
+    justify-content:space-around;
+    margin: 10px 0;
+}
+
+.card{
+    margin-top: 10px;
+    border: 1px solid #abe0f2;
+    background-color: transparent;
+    padding: 0;
+}
+
+.card-title{
+    text-align: center;
+    color: #abe0f2;
+}
+
+.border-img{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #abe0f2;
+}
+
+
+.button-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-img a{
+    margin: 5px;
+    background-color: #141943;
+    border:2px solid #abe0f2;
+    color: #abe0f2;
+    border-radius: 5px;
+    text-decoration: none;
+}
+

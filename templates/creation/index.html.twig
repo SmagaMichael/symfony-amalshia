@@ -1,20 +1,49 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CreationController!{% endblock %}
+{% block title %}Toutes mes créations
+{% endblock %}
+
+{% block stylesheets %}
+	{{parent()}}
+	<link rel="stylesheet" href=" {{asset('css/allcreation.css')}} ">
+	<link rel="stylesheet" href=" {{asset('css/lightbox.min.css')}} ">
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+	<div class="photo-gallery">
+		<div class="container">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Mikie/Desktop/symfony_amalshia/symfony_amalshia/src/Controller/CreationController.php'|file_link(0) }}">src/Controller/CreationController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Mikie/Desktop/symfony_amalshia/symfony_amalshia/templates/creation/index.html.twig'|file_link(0) }}">templates/creation/index.html.twig</a></code></li>
-    </ul>
-</div>
+			<div class="intro">
+				<h1 class="text-center">Ensemble de mes projets</h2>
+			</div>
+
+			<div class="row all-creation">
+				{% for creation in creations %}
+					<div class="card" style="width: 18rem;">
+						<a class="border-img" href="{{asset('img/uploads/' ~ creation.picture)}}" data-lightbox="photos">
+							<img class="img-fluid" src="{{asset('img/uploads/' ~ creation.picture)}}">
+						</a>
+						<div class="card-body">
+							<h5 class="card-title"> {{creation.title}}</h5>
+							{# <p class="card-text">{{creation.description}}</p> #}
+
+							<div class="button-img">
+								<a href="#" class="btn btn-primary">Modifier</a>
+								<a href="#" class="btn btn-primary">Supprimer</a>
+							</div>
+
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+
+
+{% block javascripts %}
+	{{parent()}}
+	<script src=" {{asset('js/lightbox.min.js')}}"></script>
 {% endblock %}
