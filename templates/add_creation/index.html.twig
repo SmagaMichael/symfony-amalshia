@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AddCreationController!
+{% endblock %}
+
+{% block body %}
+	{# affichage du formulaire #}
+
+	{{form_start(AddCreationFormType)}}
+	{{form_widget(AddCreationFormType)}}
+	<button class="btn btn-primary">Ajouter ma création</button>
+	{{form_end(AddCreationFormType)}}
+
+
+{% endblock %}

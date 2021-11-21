@@ -6,8 +6,32 @@
 {% block stylesheets %}
 	{{parent()}}
 	<link rel="stylesheet" href=" {{asset('css/home.css')}} ">
+	<link rel="stylesheet" href=" {{asset('css/bubble.css')}} ">
 {% endblock %}
 
 {% block body %}
-homepage
+    <div class="backgroundCover">
+        <div class="cover">
+            <!-- AVATAR -->
+            <img src="{{asset('img/home/avatar.png')}}" class="avatar col-12 col-md-6 col-lg-4">
+
+            <!-- Titre + TEXTE ANIMATION -->
+            <div class="titre col-12 col-md-6 col-lg-4">
+                <div class="talk-bubble tri-right  round left-top">
+                    <div class="talktext ">
+                        <div class="MyDescription ">
+                            <p ID="MyTextDescription">Coucou, je m'appelle Amalshia et je veux vous faire découvrir ma passion pour l'illustration à travers ce site que je mettrais à jour fréquemment.
+                            Ce site à pour but de vous faire partager mes créations et aussi me faire connaitre dans ce milieu afin de faire de ma passion ma vocation. Merci de votre visite, j'espère que mes créations vous plairont 😊</p>
+                        </div>             
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{parent()}}
+    <script src=" {{asset('js/anime-text.js')}} "></script>
 {% endblock %}

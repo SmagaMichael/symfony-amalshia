@@ -1,0 +1,47 @@
+      body{
+        background-image: url('../img/background/tree.jpg');
+        background-size: 100% 100%;
+      }
+      
+      /* PARTIE photo de couverture */
+      .backgroundCover{
+        background-color: rgba(0, 0, 0, 0);
+        margin-top: 60px;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+        
+    /*PARTIE HAUTE */
+    .cover{
+        background-size:100%;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        background-color: rgba(0, 0, 0, 0);
+        border-bottom:1px solid white;  
+        justify-content: center;
+    }
+    
+    
+    
+    /*Titre + TEXTE ANIMATION */
+    .titre{
+        text-align: center;
+        align-items: center;
+        display: flex;
+        
+    }
+    
+    .titre h1{
+        color:#053342;
+        font-size: 5vw;
+        font-weight: 700;
+        font-family: 'Marck';
+    }
+    .MyDescription{
+        color: white;
+      
+    }

@@ -1,0 +1,42 @@
+/* PARTIE CONTACT */
+body{
+    background-image: url('../img/background/tree.jpg');
+    background-size: 100% 100%;
+}
+
+#CONTACT{
+    background-color: black;
+    margin: 0;}
+
+ .contact{
+    background-color: #000000;
+    padding-top: 40px;}
+    
+.TitleContact{
+        color: #abe0f2;
+        margin-top: 50px;
+    }
+
+.contact-form .form-control{
+    border:2px solid #abe0f2;
+    background-color: #141943;}
+
+.contact-form .form-control:focus{
+        box-shadow: none;}
+
+.envoyermail{
+    text-transform: uppercase;}
+
+.TextContact{
+    min-height: 100px;
+}
+
+.send-mail{
+    margin: 15px;
+    background-color: #141943;
+    border:2px solid #abe0f2;
+    color: #abe0f2;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 5px;
+}

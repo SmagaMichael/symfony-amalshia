@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block stylesheets %}
+    {{parent()}}
+    <link rel="stylesheet" href=" {{asset('css/contact.css')}} ">
+{% endblock %}
+
+{% block body %}
+        <div class="container text-center">
+           
+            <h2 class="TitleContact">Contact</h1>
+                                    <!--formulaire  contact-->
+           <div class="col-lg-10 mx-auto">
+                <form action="" class="contact-form"> <!--balise pour indiquer le formulaire-->
+                    <div class="form-group mb-3 shadowblock">
+                            <label for="name" class="d-none ">Téléphone</label> 
+                            <input type="text" name="name" id="Nom" placeholder="Nom" class="form-control">
+                    </div>
+                        
+                    <div class="form-group  mb-3 shadowblock">
+                            <label for="email" class="d-none">Email</label> 
+                            <input type="email" name="email" id="email" placeholder="Adresse email" class="form-control">
+                    </div>
+
+                    <div class="form-group shadowblock">
+                        <label for="phone" class="d-none">Téléphone</label> 
+                        <input type="phone" name="phone" id="phone" placeholder="Téléphone" class="form-control">
+                    </div>
+
+                    <label for="message"></label>
+                    <textarea name="message" id="message" cols="60" rows="10" placeholder="Message" class="TextContact form-control shadowblock"></textarea>
+  
+                    <div ><button class="send-mail">Envoyer</button></div>
+                    
+                <!--envoyer un mail -->
+                {# <a  class="envoyermail" href="mailto:michael-goth@hotmail.fr">Envoyer mail</a> #}
+                <a  class="send-mail" href="">Envoyer mail</a>
+                </form>
+            </div> <!-- fin formulaire-->
+        </div>
+
+
+            <br/><br/><br/>
+    </div>
+{% endblock %}

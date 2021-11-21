@@ -9,7 +9,9 @@
     border-bottom: 1px solid white;
     background-color: black ;
     width: 100%;
+    height: 8vw;
 }
+
 .nav-item{
     display: flex;
     align-items: center;
