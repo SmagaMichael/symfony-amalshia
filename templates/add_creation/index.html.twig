@@ -3,13 +3,29 @@
 {% block title %}Hello AddCreationController!
 {% endblock %}
 
+{% block stylesheets %}
+    {{parent()}}
+    <link rel="stylesheet" href=" {{asset('css/form.css')}} ">
+{% endblock %}
+
 {% block body %}
 	{# affichage du formulaire #}
 
+<div class="container p-2 mt-5">
 	{{form_start(AddCreationFormType)}}
-	{{form_widget(AddCreationFormType)}}
-	<button class="btn btn-primary">Ajouter ma création</button>
+
+	{{ form_row(AddCreationFormType.title) }}
+	{{ form_row(AddCreationFormType.picture) }}
+	{{ form_row(AddCreationFormType.date) }}
+	{{ form_row(AddCreationFormType.description) }}
+	{# {{form_widget(AddCreationFormType)}} #}
+
+    <div class="div-btn-form">
+    	<button class="btn btn-form">Ajouter ma création</button>
+
+    </div>
 	{{form_end(AddCreationFormType)}}
+</div>
 
 
 {% endblock %}

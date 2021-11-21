@@ -1,0 +1,35 @@
+body{
+    background-image: url('../img/background/tree.jpg');
+    background-size: 100% 100%;
+}
+
+.form-control{
+    border:2px solid #abe0f2;
+    color: #abe0f2;
+    background-color: #141943;
+}
+
+.form-control:focus{
+        box-shadow: none;}
+
+.form-control::placeholder{
+    color: #abe0f2;
+}
+
+.btn-form{
+    border:2px solid #abe0f2;
+    color: #abe0f2;
+    background-color: #141943;
+}
+.btn-form:hover{
+    border:2px solid #abe0f2;
+    color: #abe0f2;
+    background-color: #141943;
+}
+
+.div-btn-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
