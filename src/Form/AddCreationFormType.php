@@ -14,7 +14,7 @@ class AddCreationFormType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('slug')
+            // ->add('slug')
             ->add('picture', FileType::class,[
                 
             ])
