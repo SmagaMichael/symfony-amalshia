@@ -5,45 +5,41 @@
 
 {% block stylesheets %}
 	{{parent()}}
-	<link rel="stylesheet" href=" {{asset('css/allcreation.css')}} ">
-	<link rel="stylesheet" href=" {{asset('css/lightbox.min.css')}} ">
+	<link rel="stylesheet" href=" {{asset('css/gallery/gallery.css')}} ">
+	<link rel="stylesheet" href=" {{asset('css/gallery/lightgallery.css')}} ">
 {% endblock %}
 
 {% block body %}
 
-	<div class="photo-gallery">
-		<div class="container">
-
-			<div class="intro">
-				<h1 class="text-center">Ensemble de mes projets</h2>
-			</div>
-
-			<div class="row all-creation">
+	<div class="container">
+		<div class="demo-gallery">
+			<ul id="lightgallery" class="list-unstyled row all-creation">
 				{% for creation in creations %}
-					<div class="card" style="width: 18rem;">
-						<a class="border-img" href="{{asset('img/uploads/' ~ creation.picture)}}" data-lightbox="photos">
-							<img class="img-fluid" src="{{asset('img/uploads/' ~ creation.picture)}}">
+					<li class="col-xs-6 col-sm-4 col-md-3 col-lg-3" data-src="{{asset('img/uploads/' ~ creation.picture)}}" data-sub-html="<h4>{{creation.title}}</h4><p>{{creation.description}}</p>" data-pinterest-text="Pin it1" data-tweet-text="share on twitter 1">
+						<a href="">
+							<img class="img-responsive" src="{{asset('img/uploads/' ~ creation.picture)}}" alt="Thumb-1">
 						</a>
-						<div class="card-body">
-							<h5 class="card-title"> {{creation.title}}</h5>
-							{# <p class="card-text">{{creation.description}}</p> #}
-
-							<div class="button-img">
-								<a href="#" class="btn btn-primary">Modifier</a>
-								<a href="#" class="btn btn-primary">Supprimer</a>
-							</div>
-
-						</div>
-					</div>
+					</li>
 				{% endfor %}
-			</div>
+			</ul>
 		</div>
 	</div>
 
 {% endblock %}
 
-
 {% block javascripts %}
 	{{parent()}}
-	<script src=" {{asset('js/lightbox.min.js')}}"></script>
+	<script src=" {{asset('js/gallery/picturefill.min.js')}}"></script>
+	<script src=" {{asset('js/gallery/lightgallery.js')}}"></script>
+	<script src=" {{asset('js/gallery/lg-pager.js')}}"></script>
+	<script src=" {{asset('js/gallery/lg-autoplay.js')}}"></script>
+	<script src=" {{asset('js/gallery/lg-fullscreen.js')}}"></script>
+	<script src=" {{asset('js/gallery/lg-zoom.js')}}"></script>
+	<script src=" {{asset('js/gallery/lg-hash.js')}}"></script>
+	<script src=" {{asset('js/gallery/lg-share.js')}}"></script>
+	<script src=" {{asset('js/gallery/lg-rotate.js')}}"></script>
+	<script>
+		lightGallery(document.getElementById('lightgallery'));
+	</script>
+
 {% endblock %}
