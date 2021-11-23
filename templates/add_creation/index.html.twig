@@ -20,12 +20,19 @@
 	{{ form_row(AddCreationFormType.description) }}
 	{# {{form_widget(AddCreationFormType)}} #}
 
+		<div class="div-img-change"></div>
+
     <div class="div-btn-form">
     	<button class="btn btn-form">Ajouter ma création</button>
-
     </div>
 	{{form_end(AddCreationFormType)}}
 </div>
 
 
 {% endblock %}
+
+{% block javascripts %}
+	{{parent()}}
+	<script src="{{asset('js/show-img.js')}} "></script>
+{% endblock %}
+

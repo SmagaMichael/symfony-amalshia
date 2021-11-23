@@ -23,6 +23,7 @@ class AddCreationFormType extends AbstractType
             ])
             // ->add('slug')
             ->add('picture', FileType::class,[
+                'mapped' => false,
                 'label' => ' ',
                 'attr' => [
                     'class'=> 'form-control',
