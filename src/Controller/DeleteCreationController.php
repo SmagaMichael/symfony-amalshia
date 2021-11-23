@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DeleteCreationController extends AbstractController
 {
-    #[Route('/delete/creation/{id}', name: 'delete_creation')]
+    #[Route('/admin/delete/creation/{id}', name: 'delete_creation')]
     public function index(Creation $creation): Response
     {
                // Pour supprimer avec Doctrine

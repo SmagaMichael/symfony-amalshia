@@ -13,7 +13,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 
 class AddCreationController extends AbstractController
 {
-    #[Route('/add/creation', name: 'add_creation')]
+    #[Route('/admin/add/creation', name: 'add_creation')]
     public function create(Request $request, EntityManagerInterface $manager, SluggerInterface $slugger): Response
     {
         $creation = new Creation();

@@ -12,7 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class EditCreationController extends AbstractController
 {
-    #[Route('/edit/creation/{id}', name: 'edit_creation')]
+    #[Route('/admin/edit/creation/{id}', name: 'edit_creation')]
     public function edit(Request $request, Creation $creation): Response
     {
 
