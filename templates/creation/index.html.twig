@@ -5,6 +5,7 @@
 
 {% block stylesheets %}
 	{{parent()}}
+	<link rel="stylesheet" href=" {{asset('css/gallery/page.css')}} ">
 	<link rel="stylesheet" href=" {{asset('css/gallery/gallery.css')}} ">
 	<link rel="stylesheet" href=" {{asset('css/gallery/lightgallery.css')}} ">
 {% endblock %}
@@ -14,21 +15,34 @@
 	<div class="container-fluid">
 		<div class="demo-gallery">
 			<ul id="lightgallery" class="list-unstyled row all-creation " data-masonry='{"percentPosition": true }'>
-				{# {% for i in 1..3 %} #}
+				{% for i in 1..3 %}
 					{% for creation in creations %}
-					<li class="col-12 col-md-3 col-lg-2"
+					<li class="col-6 col-md-3 col-lg-2"
 					 data-src="{{asset('img/uploads/' ~ creation.picture)}}" 
 					 data-sub-html="
 						<h4>{{creation.title}}</h4>
 						<p>{{creation.description}}</p>" 
 					 data-pinterest-text="Pin it1" 
 					 data-tweet-text="share on twitter 1">
-						<a href="">
+						<a href="" class="col-12 col-md-12 col-lg-12">
 							<img class="img-responsive" src="{{asset('img/uploads/' ~ creation.picture)}}" alt="Thumb-1">
 						</a>
+						<div class="col-12 col-md-12 col-lg-12 div-button">
+							<a href="">
+								<button class="button-creation">
+									<i class="btn fas fa-edit"></i>
+								</button>
+							</a>
+							<a href="">
+								<button class="button-creation">
+									<i class="btn fas fa-trash-alt"></i>
+								</button>
+							</a>
+						</div>
+
 					</li>
 				{% endfor %}
-				{# {% endfor %} #}
+				{% endfor %}
 			</ul>
 		</div>
 	</div>

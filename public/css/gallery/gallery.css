@@ -1,6 +1,29 @@
 body{
   background-color: #000000
 }
+.div-button{
+  border: 3px solid #FFF;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.div-button a{
+ /* margin: 5px; */
+ border: none !important;
+}
+.button-creation{
+  margin: 5px;
+  background-color: #141943;
+  border:2px solid #abe0f2;
+  color: #abe0f2;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 5px;
+}
+.button-creation i{
+    color: #abe0f2;
+}
+
 .all-creation{
   justify-content: center;
 }
@@ -11,7 +34,7 @@ body{
   margin-bottom: 0;
 }
 .demo-gallery > ul > li {
-  float: left;
+  /* float: left; */
   margin-bottom: 15px;
   /* border: 3px solid #FFF; */
   padding: 10px;
