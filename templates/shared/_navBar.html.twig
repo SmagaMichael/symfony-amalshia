@@ -31,19 +31,35 @@
 
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Mon compte
+						{% if app.user %}
+							{{ app.user.username }}
+						{% else %}
+							Mon compte
+						{% endif %}
+
 					</a>
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<li>
-							<a class="dropdown-item" href="#">Admin</a>
+						{% if app.user %}
+
+							{% if is_granted('ROLE_ADMIN') %}
+								<li>
+									<a class="dropdown-item" href="#">Admin</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="{{path('add_creation')}}">Ajouter une création</a>
+								</li>
+							{% endif %}
+								<li>
+							<a class="dropdown-item" href="{{path('app_logout')}}">Déconnexion</a>
 						</li>
-						<li>
-							<a class="dropdown-item" href="{{path('add_creation')}}">Ajouter une création</a>
-						</li>
-						<li><hr class="dropdown-divider"></li>
-						<li>
-							<a class="dropdown-item" href="#">Déconnexion</a>
-						</li>
+						{% else %}
+							<li>
+								<a class="dropdown-item" href="{{path('app_login')}}">Connexion</a>
+							</li>
+						{% endif %}
+
+						{# <li><hr class="dropdown-divider"></li> #}
+					
 					</ul>
 				</li>
 
