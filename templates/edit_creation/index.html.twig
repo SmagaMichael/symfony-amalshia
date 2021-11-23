@@ -12,15 +12,17 @@
 	{# affichage du formulaire #}
 
 	<div class="container p-2 mt-5">
-		{{form_start(AddCreationFormType)}}
+		{{form_start(AddCreationFormType, { attr: {novalidate: 'novalidate'} })}}
 
 		{{ form_row(AddCreationFormType.title) }}
 		{{ form_row(AddCreationFormType.picture) }}
 		{{ form_row(AddCreationFormType.date) }}
 		{{ form_row(AddCreationFormType.description) }}
 		{# {{form_widget(AddCreationFormType)}} #}
-		<div class="div-img-change"></div>
-		<img class="img-fluid" src="{{ asset('img/uploads/' ~ Creation.picture) }}" alt="{{ Creation.title }}"/>
+		<div class="div-img-change">
+        		<img class="img-fluid mt-5" width="250" src="{{ asset('img/uploads/' ~ Creation.picture) }}" alt="{{ Creation.title }}"/>
+
+        </div>
 
 		<div class="div-btn-form">
 			<button class="btn btn-form">Modifier ma création</button>

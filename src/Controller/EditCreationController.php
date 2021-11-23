@@ -18,21 +18,28 @@ class EditCreationController extends AbstractController
 
         $form = $this->createForm(AddCreationFormType::class, $creation);
         $form->handleRequest($request);
+        $imageExist = $form->getData()->getPicture();
         
         if ($form->isSubmitted() && $form->isValid()) {
             $image = $form->get('picture')->getData();
-dd($image);
-            if ($image) {
+            if ($image) { // Si on upload une image 
+                // On doit vérifier si une ancienne image est présente pour la supprimer
+
                 if ($creation->getPicture()) {
                     // FileSystem permet de manipuler les fichiers
                     $fs = new Filesystem();
                     // On supprime l'ancienne image
                     $fs->remove($this->getParameter('upload_directory').'/'.$creation->getPicture());
                 }
+
                 $filename = uniqid() . '.' . $image->guessExtension();
                 $image->move($this->getParameter('upload_directory'), $filename);
                 $creation->setPicture($filename);
+            }else{
+                $creation->setPicture("$imageExist");
             }
+
+
             $this->getDoctrine()->getManager()->flush();
 
             $this->addFlash('success', 'Le produit a bien été modifié');

@@ -5,7 +5,8 @@ $('[type="file"]').on('change', function () {
     let reader = new FileReader();
     // On doit écouter un événement pour faire quelque chose avec cette image
     reader.addEventListener('load', function (file) {
-        console.log(file);
+        // console.log(file);
+
 
         // Cleaner les anciennes images
         $('.img-fluid').remove();
