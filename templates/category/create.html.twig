@@ -1,9 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CategoryController!{% endblock %}
+{% block title %}Créer catégorie{% endblock %}
+
+
+{% block stylesheets %}
+    {{parent()}}
+    <link rel="stylesheet" href=" {{asset('css/form.css')}} ">
+{% endblock %}
 
 {% block body %}
+	{# affichage du formulaire #}
 
+<div class="container p-2 mt-5">
 <h1>Créer catégorie</h1>
 
+	{{form_start(AddCategoryFormType)}}
+
+	{{ form_row(AddCategoryFormType.name) }}
+
+    <div class="div-btn-form">
+    	<button class="btn btn-form">Ajouter la catégorie</button>
+    </div>
+	{{form_end(AddCategoryFormType)}}
+</div>
+
+
 {% endblock %}
+

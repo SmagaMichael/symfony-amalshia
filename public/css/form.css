@@ -3,6 +3,11 @@ body{
     background-size: 100% 100%;
 }
 
+h1{
+    color: #abe0f2;
+
+}
+
 .form-control{
     border:2px solid #abe0f2;
     color: #abe0f2;

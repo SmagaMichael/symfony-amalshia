@@ -47,7 +47,7 @@ class AddCreationController extends AbstractController
             return $this->redirecttoRoute('creation');
         }
 
-        return $this->render('add_creation/index.html.twig', [
+        return $this->render('creation/add_creation.html.twig', [
             'AddCreationFormType' => $form->createView(),
         ]);
     }

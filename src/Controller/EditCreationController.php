@@ -48,7 +48,7 @@ class EditCreationController extends AbstractController
 
 
 
-        return $this->render('edit_creation/index.html.twig', [
+        return $this->render('creation/edit_creation.html.twig', [
             'AddCreationFormType' => $form->createView(),
             'Creation' => $creation,
 
