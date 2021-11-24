@@ -18,6 +18,8 @@
 		{{ form_row(AddCreationFormType.picture) }}
 		{{ form_row(AddCreationFormType.date) }}
 		{{ form_row(AddCreationFormType.description) }}
+			{{ form_row(AddCreationFormType.category) }}
+
 		{# {{form_widget(AddCreationFormType)}} #}
 		<div class="div-img-change">
         		<img class="img-fluid mt-5" width="250" src="{{ asset('img/uploads/' ~ Creation.picture) }}" alt="{{ Creation.title }}"/>

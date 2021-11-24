@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{category.name}}
+{% endblock %}
+
+{% block stylesheets %}
+	{{parent()}}
+	<link rel="stylesheet" href=" {{asset('css/gallery/page.css')}} ">
+	<link rel="stylesheet" href=" {{asset('css/gallery/gallery.css')}} ">
+	<link rel="stylesheet" href=" {{asset('css/gallery/lightgallery.css')}} ">
+{% endblock %}
+
+{% block body %}
+
+	<div class="container-fluid">
+		<div class="demo-gallery">
+			<ul id="lightgallery" class="list-unstyled row all-creation " data-masonry='{"percentPosition": true }'>
+				{% for i in 1..3 %}
+					{% for creation in category.creations %}
+							<li class="col-6 col-md-3 col-lg-2"
+							data-src="{{asset('img/uploads/' ~ creation.picture)}}" 
+							data-sub-html="
+								<h4>{{creation.title}}</h4>
+								<p>{{creation.description}}</p>
+								<br>
+								<a class=button-creation href={{ path('edit_creation', {id: creation.id}) }}><i class='btn fas fa-edit'></i></a>
+								<a class=button-creation href={{ path('delete_creation', {id: creation.id}) }}><i class='btn fas fa-trash-alt'></i></a>" 
+							data-pinterest-text="Pin it1" 
+							data-tweet-text="share on twitter 1">
+								<a href="" class="col-12 col-md-12 col-lg-12">
+									<img class="img-responsive" src="{{asset('img/uploads/' ~ creation.picture)}}" alt="Thumb-1">
+								</a>
+							</li>
+				{% endfor %}
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block javascripts %}
+	{{parent()}}
+	<script src=" {{asset('js/gallery/picturefill.min.js')}}"></script>
+	<script src=" {{asset('js/gallery/lightgallery.js')}}"></script>
+	<script src=" {{asset('js/gallery/lg-pager.js')}}"></script>
+	<script src=" {{asset('js/gallery/lg-autoplay.js')}}"></script>
+	<script src=" {{asset('js/gallery/lg-fullscreen.js')}}"></script>
+	<script src=" {{asset('js/gallery/lg-zoom.js')}}"></script>
+	<script src=" {{asset('js/gallery/lg-hash.js')}}"></script>
+	<script src=" {{asset('js/gallery/lg-share.js')}}"></script>
+	<script src=" {{asset('js/gallery/lg-rotate.js')}}"></script>
+	<script>
+		lightGallery(document.getElementById('lightgallery'));
+	</script>
+	<script src="{{asset('js/gallery/masonry.pkgd.min.js')}}"  async></script>
+
+
+{% endblock %}
+
+
+

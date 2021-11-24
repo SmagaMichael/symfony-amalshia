@@ -26,6 +26,8 @@ class CategoryController extends AbstractController
         $formView = $form->createView();
 
         if ($form->isSubmitted()) {
+            $category->setSlug(strtolower($slugger->slug($category->getName())));
+            $manager->persist($category);
             $manager->flush();
             return $this->redirectToRoute('home');
         }
@@ -38,7 +40,7 @@ class CategoryController extends AbstractController
 
 
     #[Route('/admin/edit/category/{id}', name: 'edit_category')]
-    public function edit(Request $request, $id, CategoryRepository $categoryRepository, EntityManagerInterface $manager): Response
+    public function edit(Request $request, $id, CategoryRepository $categoryRepository,EntityManagerInterface $manager, SluggerInterface $slugger): Response
     {
 
         $category = $categoryRepository->find($id);
@@ -46,6 +48,8 @@ class CategoryController extends AbstractController
 
         $form->handleRequest($request);
         if ($form->isSubmitted()) {
+            $category->setSlug(strtolower($slugger->slug($category->getName())));
+            $manager->persist($category);
             $manager->flush();
             return $this->redirectToRoute('home');
         }
@@ -54,6 +58,24 @@ class CategoryController extends AbstractController
         return $this->render('category/edit.html.twig', [
             'category' => $category,
             'AddCategoryFormType' => $formView,
+        ]);
+    }
+
+    #[Route('/category/{slug}', name: 'show_category')]
+    public function show($slug, CategoryRepository $categoryRepository): Response
+    {
+
+        $category = $categoryRepository->findOneBy([
+            'slug' => $slug
+        ]);
+
+       if (!$category) {
+           throw $this->createNotFoundException("La catégorie demandée n'existe pas");
+       }
+
+        return $this->render('category/show_category.html.twig', [
+            'slug' => $slug,
+            'category' => $category,
         ]);
     }
 
