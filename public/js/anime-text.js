@@ -1,4 +1,7 @@
-//on récupère le contenu du texte dans la ballise P ID="MyTextDescription"
+$( ".button-avatar" ).click(function() {
+    $(".talk-bubble").removeAttr('hidden');
+    // $(".button-avatar").addAttr('disabled');
+    //on récupère le contenu du texte dans la ballise P ID="MyTextDescription"
 var TexteEntier = document.getElementById('MyTextDescription').innerText;
 //On récupére le nombre de caractère du contenu
 var nombre_de_lettre = TexteEntier.length; 
@@ -9,7 +12,7 @@ var tableau = TexteEntier.split("");
 texte = new Array;
 var txt = '';
 var nb_msg = nombre_de_lettre - 1;
-console.log(txt);
+// console.log(txt);
 
 
 //pour i = 0 on incrémente jusqu'à ce qu'on ai atteint le nombre de lettre du contenu
@@ -19,7 +22,7 @@ var txt = texte[i];
 
 
 
-console.log(txt);
+// console.log(txt);
 
 }
 
@@ -35,3 +38,5 @@ actual_texte = nb_msg;
 
 setInterval(changeMessage,40) /* la vitesse de defilement (plus on a une valeur faible plus 
 texte s'affiche rapidement) */
+
+  });
