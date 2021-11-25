@@ -1,10 +1,10 @@
-<nav class="navbar navbar-expand-lg navbar-dark  pt-2 pb-2">
+<nav class="navbar navbar-expand-lg  pt-2 pb-2">
 	<div
 		class="container">
 
 		<!-- collapse = ouvrir/fermé le menu burger-->
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-			<span class="navbar-toggler-icon"></span>
+			<i class="far fa-star"></i>
 		</button>
 
 		<div class="collapse navbar-collapse" id="navbarNav">
@@ -17,23 +17,36 @@
 				<li class="nav-item">
 					<a class="nav-link" href=" {{path('creation')}} ">Créations</a>
 				</li>
-				
+
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Catégorie
 					</a>
-					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-					{% for c in categoryRepository.findAll() %}
+					<ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+						{% for c in categoryRepository.findAll() %}
 							<li>
-							<a class="dropdown-item" href="{{path('show_category', {'slug': c.slug})}}">{{c.name}}</a>
-						</li>
-					{% endfor %}
-					
+								<a class="dropdown-item " href="{{path('show_category', {'slug': c.slug})}}">{{c.name}}</a>
+								{% if app.user %}
+									{% if is_granted('ROLE_ADMIN') %}
+										<a class="button-edit-delete" href={{ path('edit_creation', {id: c.id} ) }}>
+											<i class='btn fas fa-edit'></i>
+										</a>
+										<a class="button-edit-delete" href={{ path('delete_creation', {id: c.id} ) }}>
+											<i class='btn fas fa-trash-alt'></i>
+										</a>
+									{% endif %}
+								{% endif %}
+
+							</li>
+							<hr>
+						{% endfor %}
+
 					</ul>
 				</li>
-				<div class="divsignature">
-					<img src="{{asset('img/logo/Logo_Amalshia_Sombre.png')}}" class="signature">
-				</div>
+				{# <div class="divsignature"> #}
+				<img
+				src="{{asset('img/logo/Logo_Amalshia_Sombre.png')}}" class="signature">
+				{# </div> #}
 
 				<li class="nav-item">
 					<a class="nav-link" href="Page3_Professionel.php">Shop</a>
@@ -66,12 +79,12 @@
 									<a class="dropdown-item" href="{{path('add_category')}}">Ajouter une catégorie</a>
 								</li>
 								{# <li>
-									<a class="dropdown-item" href="{{path('add_creation')}}">Modifier une catégorie</a>
-								</li> #}
+																	<a class="dropdown-item" href="{{path('add_creation')}}">Modifier une catégorie</a>
+																</li> #}
 							{% endif %}
-								<li>
-							<a class="dropdown-item" href="{{path('app_logout')}}">Déconnexion</a>
-						</li>
+							<li>
+								<a class="dropdown-item" href="{{path('app_logout')}}">Déconnexion</a>
+							</li>
 						{% else %}
 							<li>
 								<a class="dropdown-item" href="{{path('app_login')}}">Connexion</a>
@@ -79,7 +92,7 @@
 						{% endif %}
 
 						{# <li><hr class="dropdown-divider"></li> #}
-					
+
 					</ul>
 				</li>
 

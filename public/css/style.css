@@ -1,0 +1,10 @@
+/* RESPONSIVE AVATAR */
+@media  (min-width: 991px) {
+    .avatar{width: 500px;}
+    
+
+    }
+        
+    @media (max-width: 991px) {
+    .avatar{width: 440px;}
+    }
