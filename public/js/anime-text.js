@@ -1,4 +1,5 @@
 $( ".button-avatar" ).click(function() {
+// $( ".button-avatar" ).click(function() {
     $(".talk-bubble").removeAttr('hidden');
     // $(".button-avatar").addAttr('disabled');
     //on récupère le contenu du texte dans la ballise P ID="MyTextDescription"
