@@ -55,20 +55,27 @@ body{
     padding: 5px;
     width: inherit;
 }
+.button-avatar:hover{
+    margin: 15px;
+    background-color: #ffffff;
+    border:2px solid #abe0f2;
+    color: #000000;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 5px;
+    width: inherit;
+}
 
     
 .avatar{
     width: inherit;
 }
     
+.modal-dialog{
+    top: 50%;
+    }
 
-.modal {
-    border: 2px solid red;
-}
-/* .img-btn-avatar .modal-header {
-padding: 1px !important;
-} */
-        
+   
 .talk-bubble{
     margin-bottom: 10px;
 }
@@ -107,9 +114,7 @@ padding: 1px !important;
         padding: 5px;
         position: relative;
     }
-    .modal-dialog{
-        top: 50%;
-        }
+
     }
 
 @media (max-width: 768.99px) {
