@@ -1,1 +1,41 @@
-/* RESPONSIVE AVATAR */
+.delete-modal .modal-content{
+    background-color: #141943;
+    border: 2px solid #abe0f2;
+    color: #abe0f2;
+}
+.delete-modal span{
+    color: #ffffff;
+    font-weight: bold;
+
+}
+.delete-modal .modal-title{
+    color: #ffffff
+}
+
+.btn-modal-annul{
+    background-color: #ff0000;
+    border: 2px solid #abe0f2;
+    color: #000000;
+    font-weight: bold
+}
+
+.btn-modal-annul:hover{
+    background-color: #ff0000;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    font-weight: bold;
+
+}
+
+.btn-modal-valid{
+    background-color: #24bb24;
+    border: 2px solid #abe0f2;
+    color: #000000;
+    font-weight: bold;
+}
+.btn-modal-valid:hover{
+    background-color: #24bb24;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    font-weight: bold;
+}

@@ -30,30 +30,27 @@
 								{% if app.user %}
 									{% if is_granted('ROLE_ADMIN') %}
 										<div class="btn-cat-adm">
-										<a class="button-edit-delete" href={{ path('edit_category', {id: c.id} ) }}>
-											<i class='btn fas fa-edit'></i>
-										</a>
-										<a class="button-edit-delete" href={{ path('delete_category', {id: c.id} ) }}>
-											<i class='btn fas fa-trash-alt'></i>
-										</a>
+											<a class="button-edit-delete" href={{ path('edit_category', {id: c.id} ) }}>
+												<i class='btn fas fa-edit'></i>
+											</a>
+											{# <a class="button-edit-delete" href={{ path('delete_category', {id: c.id} ) }}>
+																							<i class='btn fas fa-trash-alt'></i>
+																						</a> #}
+											<a type="button" class="button-edit-delete" data-bs-toggle="modal" data-bs-target="#deleteCategorieModal{{c.id}}">
+												<i class='btn fas fa-trash-alt'></i>
+											</a>
+
 										</div>
+
 									{% endif %}
 								{% endif %}
-
 							</li>
 						{% endfor %}
 
 					</ul>
 				</li>
-				{# <div class="divsignature"> #}
-
-				{# </div> #}
-
-				{# <li class="nav-item">
-									<a class="nav-link" href="Page3_Professionel.php">Shop</a>
-								</li> #}
-
-					<li class="nav-item"> <a class="nav-link profess" href=" {{path('contact')}} ">Contact</a>
+				<li class="nav-item">
+					<a class="nav-link profess" href=" {{path('contact')}} ">Contact</a>
 				</li>
 				<div class="nav-item dropdown dropdown-user">
 					<a class="nav-link dropdown-toggle link-user" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -88,31 +85,37 @@
 						{% endif %}
 					</ul>
 				</div>
-
-
 			</ul>
-
-
 		</div>
 	</div>
 </nav>
 
 
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			</div>
-			<div class="modal-body">
-				...
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Understood</button>
+<!-- Modal delete-->
+<div class="delete-modal">
+	{% for c in categoryRepository.findAll() %}
+		<div class="modal fade" id="deleteCategorieModal{{c.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Suppression de la catégorie :
+							"<span>{{c.name}}</span>"
+						</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						Êtes-vous sûr de bien vouloir supprimer la catégorie
+						<span>"{{c.name}}"</span>
+						ainsi que les créations qui s'y trouvent ?
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-modal-annul" data-bs-dismiss="modal">Non</button>
+						<a class="btn btn-modal-valid" href={{ path('delete_category', {id: c.id} ) }}>
+							Oui, supprimer
+						</a>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
+	{% endfor %}
 </div>
