@@ -7,7 +7,7 @@
 
 .navbar{
     border-bottom: 1px solid white;
-    background-color: black ;
+    background-color: #141943 ;
     width: 100%;
 }
 .navbar>.container{
@@ -16,6 +16,7 @@
 
 .navbar-toggler{
     border: 1px solid #abe0f2;
+    padding: 15px;
     margin: 10px;
 }
 .navbar-toggler i{
@@ -23,20 +24,22 @@
 }
 
 .navbar .navbar-collapse {
-    background-color: black;
     justify-content: center;
+    flex-wrap: wrap;
 /* z-index: 9999; */
 }
 
 .navbar .navbar-nav{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
     }
 
 .navbar .nav-item{
     display: flex;
     align-items: center;
+    height: fit-content;
 }
 
 
@@ -53,13 +56,55 @@
 }
 
 
+
+.dropdown{
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.dropdown-menu{
+    width: 100%;
+    background-color: black;
+    padding: 2px !important;
+}
+.dropdown-menu li{
+    background-color: #1c2361;
+    border-bottom: 1px solid #abe0f2;
+
+}
+.dropdown-item{
+    color:  #abe0f2;
+}
+
+.dropdown-user{
+    width: 100%;
+}
+.link-user{
+    padding: 5px !important;
+}
+
+
+
 .navbar .signature{
     height: 8vw;
+}
+
+.btn-cat-adm{
+display: flex;
+justify-content: center;
+}
+.btn-cat-adm i{
+    color: #abe0f2;
+}
+.fa-edit:hover{
+    color: #2bff00;
+}
+.fa-trash-alt:hover{
+    color: #ff0000;
 }
  
 
 /* RESPONSIVE AVATAR */
-@media  (min-width: 991px) {
+@media  (min-width: 992px) {
     
     #navbarNav .nav-link{
         border-top:2px  solid white;
@@ -68,6 +113,8 @@
         font-weight: 700;
         padding: 20px 50px;
     }
+
+
     
     }
         
@@ -77,8 +124,14 @@
         display: none;
     }
     #navbarNav .nav-link{
+        border-top:2px  solid white;
+        border-bottom:2px  solid white;
         color: white;
         font-weight: 700;
         padding: 20px 70px;
+    }
+
+    .nav-item{
+        width: 100%;
     }
     }

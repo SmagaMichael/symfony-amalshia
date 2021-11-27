@@ -6,7 +6,6 @@ body{
 /* PARTIE photo de couverture */
 .backgroundCover{
     background-color: rgba(0, 0, 0, 0);
-    margin-top: 60px;
     height: 100%;
     width: 100%;
     display: flex;
@@ -94,5 +93,9 @@ body{
 }
 
 .modal-backdrop.show {
-    opacity: 0 !important;
+    display: none !important;
+}
+
+.MyDescription .modal-header{
+border: none !important;
 }
