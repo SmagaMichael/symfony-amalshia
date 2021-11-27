@@ -87,3 +87,12 @@ body{
     overflow-y: auto;
     outline: 0;
 }
+
+.modal-content {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.modal-backdrop.show {
+    opacity: 0 !important;
+}
