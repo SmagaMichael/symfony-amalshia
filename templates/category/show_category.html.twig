@@ -28,7 +28,11 @@
 								{% if is_granted('ROLE_ADMIN') %}
 								
 								<a class=button-creation href={{ path('edit_creation', {id: creation.id}) }}><i class='btn fas fa-edit'></i></a>
-								<a class=button-creation href={{ path('delete_creation', {id: creation.id}) }}><i class='btn fas fa-trash-alt'></i></a>
+								{# <a class=button-creation href={{ path('delete_creation', {id: creation.id}) }}><i class='btn fas fa-trash-alt'></i></a> #}
+									
+									<a class=button-creation data-bs-toggle=modal data-bs-target=#deleteCreationModal{{creation.id}}>
+																<i class='btn fas fa-trash-alt'></i>
+															</a>
 									{% endif %}
 								{% endif %}
 								"
@@ -42,6 +46,33 @@
 				{% endfor %}
 			</ul>
 		</div>
+	</div>
+
+		<div class="delete-modal">
+		{% for c in category.creations %}
+			<div class="modal fade" id="deleteCreationModal{{c.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Suppression de la création :
+								"<span>{{c.title}}</span>"
+							</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							Êtes-vous sûr de bien vouloir supprimer la création
+							<span>"{{c.title}}"</span> ?
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-modal-annul" data-bs-dismiss="modal">Non</button>
+							<a class="btn btn-modal-valid" href={{ path('delete_creation', {id: c.id} ) }}>
+								Oui, supprimer
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
 	</div>
 
 {% endblock %}
