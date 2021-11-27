@@ -6,11 +6,12 @@ use App\Entity\Category;
 use App\Form\AddCategoryFormType;
 use App\Repository\CategoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CategoryController extends AbstractController
 {
@@ -82,8 +83,24 @@ class CategoryController extends AbstractController
     #[Route('/admin/delete/category/{id}', name: 'delete_category')]
     public function delete(Category $category): Response
     {
+
+        // dd($category);
+       $creations = $category->getCreations();
+       foreach($creations as $creation){
+        if ($creation->getPicture()) {
+            // FileSystem permet de manipuler les fichiers
+            $fs = new Filesystem();
+            // On supprime l'ancienne image
+            $fs->remove($this->getParameter('upload_directory').'/'.$creation->getPicture());
+        }
+
+       }
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->remove($category);
+
+        
+
+
         $entityManager->flush(); 
 
         $this->addFlash('danger', 'La Catégorie a bien été supprimée');

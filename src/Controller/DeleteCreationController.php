@@ -26,8 +26,6 @@ class DeleteCreationController extends AbstractController
             }
 
          
-        
-
                $entityManager->flush(); // DELETE FROM
        
                $this->addFlash('danger', 'La création a bien été supprimée');
