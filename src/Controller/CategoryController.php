@@ -79,11 +79,15 @@ class CategoryController extends AbstractController
         ]);
     }
 
-    // #[Route('/admin/delete/category/{id}', name: 'category')]
-    // public function delete(): Response
-    // {
-    //     return $this->render('category/index.html.twig', [
-    //         'controller_name' => 'CategoryController',
-    //     ]);
-    // }
+    #[Route('/admin/delete/category/{id}', name: 'delete_category')]
+    public function delete(Category $category): Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($category);
+        $entityManager->flush(); 
+
+        $this->addFlash('danger', 'La Catégorie a bien été supprimée');
+
+        return $this->redirectToRoute('creation');
+    }
 }

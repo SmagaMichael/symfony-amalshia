@@ -2,8 +2,10 @@
 
 namespace App\Entity;
 
-use App\Repository\CreationRepository;
+use App\Entity\Category;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\JoinColumn;
+use App\Repository\CreationRepository;
 
 /**
  * @ORM\Entity(repositoryClass=CreationRepository::class)
@@ -44,6 +46,7 @@ class Creation
 
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="creations")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $category;
 

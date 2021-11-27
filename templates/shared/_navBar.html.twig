@@ -30,10 +30,10 @@
 								{% if app.user %}
 									{% if is_granted('ROLE_ADMIN') %}
 										<div class="btn-cat-adm">
-										<a class="button-edit-delete" href={{ path('edit_creation', {id: c.id} ) }}>
+										<a class="button-edit-delete" href={{ path('edit_category', {id: c.id} ) }}>
 											<i class='btn fas fa-edit'></i>
 										</a>
-										<a class="button-edit-delete" href={{ path('delete_creation', {id: c.id} ) }}>
+										<a class="button-edit-delete" href={{ path('delete_category', {id: c.id} ) }}>
 											<i class='btn fas fa-trash-alt'></i>
 										</a>
 										</div>
