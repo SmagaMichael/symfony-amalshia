@@ -14,6 +14,7 @@ body{
 
 .login-form .form-control{
     border:2px solid #abe0f2;
+    color: #abe0f2;
     background-color: #141943;}
 
 .login-form .form-control:focus{
