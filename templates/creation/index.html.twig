@@ -15,7 +15,6 @@
 	<div class="container-fluid">
 		<div class="demo-gallery">
 			<ul id="lightgallery" class="list-unstyled row all-creation " data-masonry='{"percentPosition": true }'>
-				{% for i in 1..3 %}
 					{% for creation in creations %}
 						<li class="col-6 col-md-3 col-lg-2" data-src="{{asset('img/uploads/' ~ creation.picture)}}" data-sub-html="
 															<h4>{{creation.title}}</h4>
@@ -36,7 +35,6 @@
 							</a>
 						</li>
 					{% endfor %}
-				{% endfor %}
 			</ul>
 		</div>
 	</div>
