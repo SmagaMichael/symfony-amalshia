@@ -15,7 +15,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CategoryController extends AbstractController
 {
-    #[Route('/admin/add/category', name: 'add_category')]
+    // #[Route('/admin/add/category', name: 'add_category')]
+    /**
+     * @Route("/admin/add/category", name="add_category")
+     */
     public function create(Request $request, EntityManagerInterface $manager, SluggerInterface $slugger): Response
     {
 
@@ -40,7 +43,10 @@ class CategoryController extends AbstractController
 
 
 
-    #[Route('/admin/edit/category/{id}', name: 'edit_category')]
+    // #[Route('/admin/edit/category/{id}', name: 'edit_category')]
+    /**
+     * @Route("/admin/edit/category/{id}", name="edit_category")
+     */
     public function edit(Request $request, $id, CategoryRepository $categoryRepository,EntityManagerInterface $manager, SluggerInterface $slugger): Response
     {
 
@@ -62,7 +68,10 @@ class CategoryController extends AbstractController
         ]);
     }
 
-    #[Route('/category/{slug}', name: 'show_category')]
+    // #[Route('/category/{slug}', name: 'show_category')]
+    /**
+     * @Route("/category/{slug}", name="show_category")
+     */
     public function show($slug, CategoryRepository $categoryRepository): Response
     {
 
@@ -80,7 +89,10 @@ class CategoryController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/delete/category/{id}', name: 'delete_category')]
+    // #[Route('/admin/delete/category/{id}', name: 'delete_category')]
+    /**
+     * @Route("/admin/delete/category/{id}", name="delete_category")
+     */
     public function delete(Category $category): Response
     {
 

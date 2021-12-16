@@ -10,7 +10,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class DeleteCreationController extends AbstractController
 {
-    #[Route('/admin/delete/creation/{id}', name: 'delete_creation')]
+    // #[Route('/admin/delete/creation/{id}', name: 'delete_creation')]
+    /**
+     * @Route("/admin/delete/creation/{id}", name="delete_creation")
+     */
     public function index(Creation $creation): Response
     {
                // Pour supprimer avec Doctrine

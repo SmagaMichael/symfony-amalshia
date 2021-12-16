@@ -21,7 +21,10 @@ class CreationController extends AbstractController
      *  - une catégorie mais a mettre plus tard
      */
 
-    #[Route('/creation', name: 'creation')]
+    // #[Route('/creation', name: 'creation')]
+    /**
+     * @Route("/creation", name="creation")
+     */
     public function index(CreationRepository $creationRepository): Response
     {
 
